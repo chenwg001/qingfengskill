@@ -16,6 +16,16 @@
 触发词：`qingfeng-ppt` / `轻风PPT` / `套模板做PPT` 等。
 详细说明见 [`skills/qingfeng-ppt/技能说明.md`](skills/qingfeng-ppt/技能说明.md)。
 
+### qingfeng-writing — 轻风写作（个人专属文风）
+
+个人专属写作风格生成器，严格遵循教育工作者身份配置，精准输出**公文 / 教学 / 随笔 / 小故事**四类文风。
+
+- 内置通用基础人设 + 四类文体专属写作规范、通用禁忌、句式习惯、标题规范、行文思维模型。
+- 当用户标注【公文】【教学】【随笔】【小故事】，或需要生成正式公文、教育论文、生活随笔时触发。
+- 纯 Markdown 配置，无脚本、无外部依赖，复制即用。
+
+触发词：`qingfeng-writing` / `轻风写作` / 【公文】【教学】【随笔】【小故事】 等。
+
 ## 安装方式
 
 把对应技能文件夹整体复制到 WorkBuddy 的技能目录即可（重启/刷新后生效）：
@@ -31,6 +41,16 @@ cp -r skills/qingfeng-ppt ~/.workbuddy/skills/
 
 # 或项目级
 cp -r skills/qingfeng-ppt <你的项目>/.workbuddy/skills/
+```
+
+例如安装 `qingfeng-writing`：
+
+```bash
+# 用户级
+cp -r skills/qingfeng-writing ~/.workbuddy/skills/
+
+# 或项目级
+cp -r skills/qingfeng-writing <你的项目>/.workbuddy/skills/
 ```
 
 ## 依赖
