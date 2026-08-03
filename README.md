@@ -86,6 +86,36 @@ cp -r skills/toutiao-publisher <你的项目>/.workbuddy/skills/
 - `toutiao-publisher` 发布到头条 / 公众号需浏览器自动化环境，具体依赖见其 `SKILL.md`。
 - `scripts/*.py` 基于 Python 3，运行前请安装 `python-pptx`（`pip install python-pptx`），其余依赖见各脚本头部 `import`。
 
+## 单独下载某个技能（不必克隆整个仓库）
+
+本仓库用集合方式管理多个技能，Gitee 的「下载」按钮会打包整个仓库。如果你只想要其中某一个技能，有两种方式：
+
+### 方式一：git sparse-checkout（推荐，会 git 的人用）
+
+只克隆仓库的元信息，再只检出你需要的那个技能文件夹，本地不会落下其他技能：
+
+```bash
+git clone --filter=blob:none --sparse git@gitee.com:chenwg001/qingfengskill.git
+cd qingfengskill
+# 只检出 qingfeng-ppt（换成你想要的技能目录名即可）
+git sparse-checkout set skills/qingfeng-ppt
+```
+
+想一次拿多个，就把它们都写进去，例如：
+
+```bash
+git sparse-checkout set skills/qingfeng-ppt skills/qingfeng-writing
+```
+
+### 方式二：下载发行版附件（不会 git 的人用）
+
+仓库「发行版（Release）」里为每个技能单独打了 zip 包，网页点一下即可下载单个技能，无需安装 git：
+
+- `qingfeng-ppt.zip` — 轻风PPT 自动套版
+- `qingfeng-writing.zip` — 轻风写作
+- `education-hotspot-generator.zip` — 教育热点三平台图文
+- `toutiao-publisher.zip` — 头条 / 公众号发布
+
 ## 许可证
 
 MIT，详见 [LICENSE](LICENSE)。
