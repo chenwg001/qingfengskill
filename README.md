@@ -34,6 +34,14 @@
 
 依赖：需已安装 `qingfeng-writing`（本仓库已含）与 `agnes-image` 技能。
 
+### toutiao-publisher — 头条 / 公众号文章发布
+
+将本地 HTML 文件的图文内容自动发布到 **头条号（mp.toutiao.com）** 与 **微信公众号（mp.weixin.qq.com）** 编辑器。
+
+- 识别「发布到头条 / 公众号」意图，调用对应脚本把 HTML 标题与正文填入平台编辑器。
+- 仅含技能本体（`SKILL.md` + `scripts/*.py`），不含个人发布截图与回执；脚本内不含任何硬编码账号 token。
+- 触发词：`toutiao-publisher` / `发布到头条` / `发到头条` / `把文章发到头条` / `发到公众号` 等。
+
 ## 安装方式
 
 把对应技能文件夹整体复制到 WorkBuddy 的技能目录即可（重启/刷新后生效）：
@@ -61,10 +69,21 @@ cp -r skills/qingfeng-writing ~/.workbuddy/skills/
 cp -r skills/qingfeng-writing <你的项目>/.workbuddy/skills/
 ```
 
+例如安装 `toutiao-publisher`：
+
+```bash
+# 用户级
+cp -r skills/toutiao-publisher ~/.workbuddy/skills/
+
+# 或项目级
+cp -r skills/toutiao-publisher <你的项目>/.workbuddy/skills/
+```
+
 ## 依赖
 
 - `qingfeng-ppt` 第 4 步「自动生图」依赖 `agnes-image` 技能（需已安装）。
 - `education-hotspot-generator` 依赖 `qingfeng-writing`（本仓库已含）与 `agnes-image` 技能（需已安装）。
+- `toutiao-publisher` 发布到头条 / 公众号需浏览器自动化环境，具体依赖见其 `SKILL.md`。
 - `scripts/*.py` 基于 Python 3，运行前请安装 `python-pptx`（`pip install python-pptx`），其余依赖见各脚本头部 `import`。
 
 ## 许可证
