@@ -1,6 +1,16 @@
 ---
 name: toutiao-publisher
 description: 将本地 HTML 文件的图文内容自动发布到头条号（mp.toutiao.com）。触发词：发布到头条、发到头条、把文章发到头条、头条号。微信公众号发布请使用 wechat-publisher 技能。
+version: 1.0.0
+category: publishing
+triggers:
+  - 发布到头条
+  - 发到头条
+  - 把文章发到头条
+  - 头条号
+  - 发布到公众号
+  - 发到微信
+license: MIT
 ---
 
 ## 触发规则（关键）

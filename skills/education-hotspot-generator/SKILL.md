@@ -3,6 +3,14 @@ name: education-hotspot-generator
 description: 全网搜索泛教育热点，三维加权遴选主题，调用「轻风写作」技能按头条/公众号/小红书三平台各写一篇（随笔/论文/小故事三体裁），用 agnes-image 生成封面+插图，输出 docx纯文本版、docx图片版、HTML版。当用户说"写篇教育热点""生成热点文章""做三平台教育图文"时使用
 agent_created: true
 disable: false
+version: 1.0.0
+category: content
+triggers:
+  - 写篇教育热点
+  - 生成热点文章
+  - 做三平台教育图文
+  - 教育热点写作
+license: MIT
 ---
 
 # 教育热点文章生成器（多平台 · 多体裁版）

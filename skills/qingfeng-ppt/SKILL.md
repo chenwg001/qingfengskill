@@ -2,6 +2,15 @@
 name: qingfeng-ppt
 description: 轻风PPT 自动套版三步工作流（可选第4步自动生图）。第1步：按用户上传的模板「换肤」——只读母版背景图+主题配色，套到内置轻风 14 版式骨架上（版式结构不变），并依据背景亮度自动选黑/白字；规范模板则直接用；无图且母版无背景则请用户补一张图。第2步：读用户文本或主题生成标准大纲，用户可改、须确认。第3步：按大纲把文字纯灌入模板文本占位符，不改任何样式，图片占位符留空。第4步（可选）：用户回复「生图」时，按页面内容自动生成图片并插入所有图片占位符。触发词：qingfeng-ppt、轻风PPT、用轻风模板做PPT、按模板生成PPT、套模板做PPT。
 agent_created: true
+version: 1.0.0
+category: productivity
+triggers:
+  - qingfeng-ppt
+  - 轻风PPT
+  - 用轻风模板做PPT
+  - 按模板生成PPT
+  - 套模板做PPT
+license: MIT
 ---
 
 # qingfeng-ppt — 轻风PPT 自动套版（三步工作流）
