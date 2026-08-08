@@ -1,0 +1,6 @@
+{
+  "image_provider": "builtin_imagen",
+  "video_provider": "builtin_videogen",
+  "updated_at": "2026-08-06",
+  "note": "全局默认=内置 ImageGen/VideoGen；运行时阶段0.5 让用户自选生图/生视频技能，内置工具标记为推荐。"
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+        width: 1080px;
+        height: 540px;
+        background: transparent;
+        overflow: hidden;
+        font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    }
+
+    /* 标题容器：固定在画面顶部（对应视频里 y≈120 处） */
+    .title-wrap {
+        position: absolute;
+        top: 110px;
+        left: 0;
+        width: 1080px;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 主标题文字 */
+    .light-title {
+        position: relative;
+        font-size: 62px;
+        font-weight: 900;
+        color: #ffffff;
+        letter-spacing: 6px;
+        text-align: center;
+        white-space: nowrap;
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.85),
+            0 0 20px rgba(180, 220, 255, 0.6),
+            0 0 40px rgba(100, 180, 255, 0.45),
+            0 0 80px rgba(60, 140, 255, 0.35);
+        animation: breathe 3s ease-in-out infinite;
+        user-select: none;
+    }
+
+    /* 呼吸光晕动画 */
+    @keyframes breathe {
+        0%, 100% {
+            text-shadow:
+                0 0 10px rgba(255, 255, 255, 0.85),
+                0 0 20px rgba(180, 220, 255, 0.6),
+                0 0 40px rgba(100, 180, 255, 0.45),
+                0 0 80px rgba(60, 140, 255, 0.35);
+        }
+        50% {
+            text-shadow:
+                0 0 16px rgba(255, 255, 255, 1),
+                0 0 32px rgba(200, 230, 255, 0.95),
+                0 0 64px rgba(120, 200, 255, 0.65),
+                0 0 130px rgba(80, 160, 255, 0.55);
+        }
+    }
+
+    /* 扫光层 */
+    .light-title::before {
+        content: attr(data-text);
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        color: transparent;
+        background: linear-gradient(
+            120deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.95) 50%,
+            transparent 70%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-size: 200% 100%;
+        animation: sweep 3s linear infinite;
+    }
+
+    @keyframes sweep {
+        0%   { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+
+    /* 底部光带 */
+    .title-wrap::after {
+        content: "";
+        position: absolute;
+        bottom: -16px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 3px;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.95),
+            transparent
+        );
+        animation: lineGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes lineGlow {
+        0%, 100% { opacity: 0.3; width: 42%; box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+        50%      { opacity: 1;   width: 82%; box-shadow: 0 0 22px rgba(150, 200, 255, 0.85); }
+    }
+
+    /* 背景浮动光点（限制在标题周围区域） */
+    .particles {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 1080px;
+        height: 380px;
+        pointer-events: none;
+        overflow: hidden;
+    }
+    .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #fff, 0 0 20px rgba(150, 200, 255, 0.85);
+        animation: float 6s linear infinite;
+        opacity: 0;
+    }
+    @keyframes float {
+        0%   { transform: translateY(140px) scale(0);   opacity: 0; }
+        20%  { opacity: 1; }
+        80%  { opacity: 1; }
+        100% { transform: translateY(-140px) scale(1);  opacity: 0; }
+    }
+</style>
+</head>
+<body>
+    <div class="title-wrap">
+        <div class="particles" id="particles"></div>
+        <h1 class="light-title" data-text="同一首诗 · 两个AI谁更强？">同一首诗 · 两个AI谁更强？</h1>
+    </div>
+
+    <script>
+        const particlesBox = document.getElementById('particles');
+        const count = 26;
+        for (let i = 0; i < count; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.animationDelay = (Math.random() * 6) + 's';
+            p.style.animationDuration = (4 + Math.random() * 4) + 's';
+            const size = 2 + Math.random() * 4;
+            p.style.width = size + 'px';
+            p.style.height = size + 'px';
+            particlesBox.appendChild(p);
+        }
+    </script>
+</body>
+</html>

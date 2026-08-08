@@ -19,3 +19,7 @@ Thumbs.db
 # 编辑器
 .vscode/
 .idea/
+
+# skills 目录下只放技能源码文件夹，排除打包用的 zip
+skills/*.zip
+
