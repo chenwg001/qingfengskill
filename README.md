@@ -63,6 +63,15 @@
 
 触发词：`qingfeng-video-vs` / `顺序对比视频` / `两个视频做对比` / `同题两个版本效果对比` 等。
 
+### qingfeng-VE — 轻风视频剪辑（确定性短视频生产线）
+
+轻风视频剪辑「确定性短视频生产线」技能：识别用户需求、引导提供必要信息（配音文本来源、剪辑模式），执行完整视频剪辑流水线。
+
+- 触发「我要剪视频 / 帮我剪辑 / 制作视频」等意图；可选本地 Qwen3-TTS 声音克隆（需 `torch` + `transformers` + `qwen_tts`）。
+- 核心是**确定性剪辑**（可控顺序、素材全覆盖），区别于随机混剪；依赖 `ffmpeg` / `edge-tts` / `Pillow` / `numpy`。
+
+触发词：`qingfeng-VE` / `轻风视频剪辑` / `我要剪视频` / `帮我剪辑` / `制作视频` 等。
+
 ## 安装方式
 
 把对应技能文件夹整体复制到 WorkBuddy 的技能目录即可（重启/刷新后生效）：
@@ -120,6 +129,16 @@ cp -r skills/qingfeng-video-vs ~/.workbuddy/skills/
 cp -r skills/qingfeng-video-vs <你的项目>/.workbuddy/skills/
 ```
 
+例如安装 `qingfeng-VE`：
+
+```bash
+# 用户级
+cp -r skills/qingfeng-VE ~/.workbuddy/skills/
+
+# 或项目级
+cp -r skills/qingfeng-VE <你的项目>/.workbuddy/skills/
+```
+
 ## 依赖
 
 - `qingfeng-ppt` 第 4 步「自动生图」依赖 `agnes-image` 技能（需已安装）。
@@ -127,6 +146,7 @@ cp -r skills/qingfeng-video-vs <你的项目>/.workbuddy/skills/
 - `toutiao-publisher` 发布到头条 / 公众号需浏览器自动化环境，具体依赖见其 `SKILL.md`。
 - `qingfeng-video-poem` 依赖 `ffmpeg` 与 Python 包 `edge_tts` / `numpy` / `scipy`（生图/生视频默认用 WorkBuddy 内置 `ImageGen` / `VideoGen`）。
 - `qingfeng-video-vs` 依赖 `ffmpeg`；标题光效渲染依赖 `node` + `puppeteer-core` / Playwright Chromium（找不到时自动降级跳过，不影响对比片合成）。
+- `qingfeng-VE` 依赖 `ffmpeg` / `edge-tts` / `Pillow` / `numpy`；可选本地 TTS 克隆需 `torch` + `transformers` + `qwen_tts`（环境变量 `QWEN_TTS_MODEL_DIR` / `QWEN_TTS_PYTHON`）。
 - `scripts/*.py` 基于 Python 3，运行前请安装 `python-pptx`（`pip install python-pptx`），其余依赖见各脚本头部 `import`。
 
 ## 单独下载某个技能（不必克隆整个仓库）
