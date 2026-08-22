@@ -180,6 +180,7 @@ git sparse-checkout set skills/qingfeng-ppt skills/qingfeng-writing
 - `toutiao-publisher.zip` — 头条 / 公众号发布
 - `qingfeng-video-poem.zip` — 古诗 / 叙事短视频导演
 - `qingfeng-video-vs.zip` — 顺序对比视频生成
+- `qingfeng-VE.zip` — 轻风视频剪辑（确定性短视频生产线）
 
 ## 许可证
 
