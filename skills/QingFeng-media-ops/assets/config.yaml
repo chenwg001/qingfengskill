@@ -1,0 +1,50 @@
+# 轻风全自动媒体运营 配置
+# 修改后重新跑流水线即生效；所有路径请保持与真实环境一致
+
+account:
+  persona: 轻风教育                 # 用户自称，禁止用「宿松县教育局」代指
+  position: 教育工作者，深耕基础教育、教育政策、教育技术、数据分析
+  avoid_words: []                  # 写作禁用词（留空则沿用 QingFeng-writing 红线）
+
+# 批次产物根目录（每天一个 M.D 子文件夹，如 8.31；用户明确指定其他路径时除外）
+output_root: "D:/知识库/媒体运营"
+
+# 平台开关
+platforms:
+  articles: [toutiao, wechat, xhs]        # 图文三平台
+  videos: [douyin, kuaishou, bilibili]    # 视频三平台
+  publish_to_draft: true                  # 是否自动进草稿（false 则只生成不发布）
+
+# 技能库根目录（按路径调用既有技能）
+skills_root: "D:/chenw/AgentSpace/.agents/skills"
+
+# 技能发现索引（Plan B 备份；原生发现已由 junction 恢复：C:\Users\chenw\Doubao\skills -> skills_root）
+skills_index:
+  md: "D:/chenw/AgentSpace/.agents/skills_index.md"
+  json: "D:/chenw/AgentSpace/.agents/skills_index.json"
+  build: "D:/chenw/AgentSpace/.agents/skills/QingFeng-media-ops/scripts/build_skills_index.py"
+  junction_link: "C:/Users/chenw/Doubao/skills"
+
+# ===== CDP 发布配置（全部个人账号，统一 Chrome for Testing，绝不发布）=====
+cdp:
+  # 统一浏览器：图文（头条/公众号/小红书）+ 视频（抖音/快手/B站）全部连它
+  chrome_for_testing:
+    exe: "D:/chenw/chrome-win64/chrome.exe"
+    profile: "D:/chenw/chrome-test-profile"
+    port: 9222
+  # 该 profile 必须已登录全部平台：公众号、头条、小红书、抖音、快手、B站
+  # 启动保障：python scripts/ensure_cft.py
+
+# 平台规格（排版/配图/视频，与 references/platform_spec.md 一致）
+spec:
+  toutiao:  { cover_ratio: "16:9", title_max: 30 }
+  wechat:   { cover_ratio: "2.35:1", title_max: 64 }
+  xhs:      { cover_ratio: "3:4", title_max: 20, body_max_chars: 1000 }
+  douyin:   { ratio: "9:16", duration: "30-60s" }
+  kuaishou: { ratio: "9:16", duration: "30-60s" }
+  bilibili: { ratio: "16:9", duration: "1-3min" }
+
+# 发布默认值
+publish_defaults:
+  author: 轻风教育
+  include_ai_notice: true   # 文末/简介标注 AI 生成，规避限流

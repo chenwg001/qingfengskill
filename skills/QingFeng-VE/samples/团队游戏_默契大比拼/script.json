@@ -1,0 +1,17 @@
+{
+  "title": "团队游戏·默契大比拼",
+  "mode": "topic",
+  "tone": "抒情温润·诗意",
+  "speed": 4.2,
+  "duration_target": 35,
+  "duration_est": 29.5,
+  "total_chars": 124,
+  "char_note": "total_chars 与 duration_est 均按纯汉字计（标点不计时）；与 script.txt 中文数一致",
+  "sentences": [
+    {"index": 1, "text": "游戏的哨声一响，方才还端着水杯聊天的我们，忽然都成了赛场上的少年。", "mood": "舒缓", "duration_est": 7.1},
+    {"index": 2, "text": "两人三足的绳结系在脚踝，也悄悄系住了彼此的节奏。", "mood": "温情", "duration_est": 5.5},
+    {"index": 3, "text": "背夹气球时谁都屏着呼吸，怕一松劲，就先笑场。", "mood": "轻快", "duration_est": 4.8},
+    {"index": 4, "text": "输了的人认罚毫不扭捏，赢了的人回头去拉队友一把。", "mood": "昂扬", "duration_est": 5.5},
+    {"index": 5, "text": "原来默契从不是练出来的，是平日里一次次的并肩，慢慢长出来的。", "mood": "感慨", "duration_est": 6.7}
+  ]
+}

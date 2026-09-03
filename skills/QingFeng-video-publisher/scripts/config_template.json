@@ -1,0 +1,12 @@
+{
+  "video_path": "D:/个人/资源/个人文章/AI育见/5.1/5.1.mp4",
+  "title": "视频标题",
+  "description": "视频简介内容",
+  "tags": ["标签1", "标签2", "标签3"],
+  "ai_declaration": "视频由AI生成",
+  "platform": "douyin",
+  "platforms": ["douyin"],
+  "cover_source": "D:/个人/资源/个人文章/AI育见/5.1/封面.jpg",
+  "output_dir": "D:/个人/资源/个人文章/AI育见/5.1/",
+  "notes": "配置说明：video_path 为视频文件路径；platform 可选 douyin/kuaishou/baijiahao；cover_source 为封面源图片，留空则自动使用视频同名jpg；ai_declaration 留空则不填写AI声明"
+}
